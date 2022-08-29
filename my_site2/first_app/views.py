@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.http.response import HttpResponse
+from django.http import HttpResponse
 
 # Create your views here.
 def simple_view(request):
-  return HttpResponse("SIMPLE VIEW")
+  return HttpResponse("SIMPLE VIEW") 
