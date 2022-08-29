@@ -1,7 +1,10 @@
+from audioop import reverse
 from pydoc_data.topics import topics
 from unittest import result
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect
+from django.urls import reverse
+
 
 # Create your views here.
 
@@ -38,7 +41,8 @@ def num_page_view(request, num_page):
   topic = topics_list[num_page]
   #result = articles[topic]
 
-  return HttpResponseRedirect(topic)
+  webpage = reverse('topic-page', args=[topic]) #reverse(name, args[])
+  return HttpResponseRedirect(webpage)
   
 
 
