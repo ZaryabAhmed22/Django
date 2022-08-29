@@ -1,6 +1,6 @@
 from unittest import result
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, Http404
 
 # Create your views here.
 
@@ -28,7 +28,7 @@ def news_view(request, topic):
     return HttpResponse(result)
   except:
     result = f'no page found for {topic} topic'
-    return HttpResponseNotFound(result)
+    raise Http404(result)
 
 
 def add_view(request, num1, num2):
