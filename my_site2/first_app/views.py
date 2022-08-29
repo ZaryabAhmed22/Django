@@ -1,6 +1,7 @@
+from pydoc_data.topics import topics
 from unittest import result
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, Http404
+from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect
 
 # Create your views here.
 
@@ -28,7 +29,17 @@ def news_view(request, topic):
     return HttpResponse(result)
   except:
     result = f'no page found for {topic} topic'
-    raise Http404(result)
+    raise Http404(result) # --> later on we can add 404 html template
+
+# domain.com/first_app/0 ---> domain.com/first_app/finance
+
+def num_page_view(request, num_page):
+  topics_list = list(articles.keys())
+  topic = topics_list[num_page]
+  #result = articles[topic]
+
+  return HttpResponseRedirect(topic)
+  
 
 
 def add_view(request, num1, num2):
