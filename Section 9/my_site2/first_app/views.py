@@ -1,6 +1,4 @@
-from audioop import reverse
 from pydoc_data.topics import topics
-from unittest import result
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect
 from django.urls import reverse
@@ -39,6 +37,7 @@ def simple_view(request):
 #     result = f'no page found for {topic} topic'
 #     raise Http404(result) # --> later on we can add 404 html template
 
+# REDIRECTING
 # domain.com/first_app/0 ---> domain.com/first_app/finance
 
 # def num_page_view(request, num_page):
@@ -46,6 +45,7 @@ def simple_view(request):
 #   topic = topics_list[num_page]
 #   #result = articles[topic]
 
+# REDIRECTING USING THE 'reverse' METHOD
 #   webpage = reverse('topic-page', args=[topic]) #reverse(name, args[])
 #   return HttpResponseRedirect(webpage)
   
