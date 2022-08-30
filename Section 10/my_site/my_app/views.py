@@ -6,4 +6,11 @@ def example_view(request):
   return render(request, 'my_app/example.html')
 
 def variable_view(request):
-  return render(request, 'my_app/variable.html')
+
+  my_var = {
+    'first_name': 'Rosalind',
+    'last_name': 'Franklin',
+  }
+
+
+  return render(request, 'my_app/variable.html', context=my_var)
