@@ -6,6 +6,9 @@
     <title>Document</title>
   </head>
   <body>
+    <!--Loading the static directory-->
+    {% load static %}
+
     <h1>EXAMPLE HTML CONNECTED!</h1>
     <h1 style="background: aqua, padding: 5px 15px">
       <a
@@ -38,5 +41,8 @@
         >GO TO EXTENDED HTML</a
       >
     </h1>
+    <div>
+      <img src="{% static 'my_app/messi.jpg' %}" />
+    </div>
   </body>
 </html>
