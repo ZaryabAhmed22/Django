@@ -35,5 +35,12 @@
       <li>{{item}}</li>
       {%endfor%}
     </ul>
+
+    <h2>Using the for loop on some_dict</h2>
+    <ul>
+      {%for k,v in some_dict.items %}
+      <li>{{k}}: {{v}}</li>
+      {%endfor%}
+    </ul>
   </body>
 </html>
