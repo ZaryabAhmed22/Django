@@ -11,5 +11,14 @@
       Her first name is <span style="color: red">{{first_name}}</span> and her
       last name is <span style="color: red">{{last_name}}</span>
     </h2>
+
+    <!-- indexing in JINJA -->
+    <h2>{{some_list.0}}</h2>
+
+    <!-- Dictionary in JINJA -->
+    <h2>{{some_dict.inside_key}}</h2>
+
+    <!-- Comments in JINJA -->
+    <h2>{# This is a comment in Django templates #}</h2>
   </body>
 </html>
