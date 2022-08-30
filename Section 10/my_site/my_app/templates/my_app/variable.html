@@ -29,6 +29,8 @@
     <h2>{{first_name | lower | capfirst}}</h2>
 
     <!-- Django Tags -->
+
+    <!-- for loop tag -->
     <h2>Using the for loop on some_list</h2>
     <ul>
       {%for item in some_list%}
@@ -41,6 +43,30 @@
       {%for k,v in some_dict.items %}
       <li>{{k}}: {{v}}</li>
       {%endfor%}
+    </ul>
+
+    <!-- if else tag -->
+    {% if user_logged_in and pro_subs%}
+    <h1>You're successfully<span style="color: green"> Logged in</span></h1>
+    <h4>You have our <span style="color: golden">pro</span> subscribtion</h4>
+    <p>You have enrolled in {{courses}} courses</p>
+
+    {% else %}
+    <h1>You're successfully<span style="color: purple"> Logged in</span></h1>
+    <h4>You have our free subscribtion</h4>
+    <p>You have enrolled in {{courses}} courses</p>
+    {% endif %}
+
+    <h2>
+      Using the <span style="color: aqua"> for loop </span> tag with
+      <span style="color: aqua">if</span> tag
+    </h2>
+    <ul>
+      {%for num in some_list%} {% if num == 2 %}
+      <li>two</li>
+      {% else %}
+      <li>{{num}}</li>
+      {% endif %} {%endfor%}
     </ul>
   </body>
 </html>

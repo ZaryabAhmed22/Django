@@ -11,7 +11,10 @@ def variable_view(request):
     'first_name': 'Rosalind',
     'last_name': 'Franklin',
     'some_list': [1,2,3],
-    'some_dict': {'inside_key': 'key123'}
+    'some_dict': {'inside_key': 'key123'},
+    'user_logged_in': True,
+    'pro_subs': False,
+    'courses': 5,
   }
 
 
