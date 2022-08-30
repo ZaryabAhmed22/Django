@@ -20,5 +20,8 @@ from . import views
 urlpatterns = [
     path('my_app/', include('my_app.urls')),
     path('admin/', admin.site.urls),
-    path('', views.home_view, name='home')
+    path('', views.home_view, name='home'),
 ]
+
+# Django looks for this variable for error based view
+handler404 = 'my_site.views.my_custom_page_not_found_view'
