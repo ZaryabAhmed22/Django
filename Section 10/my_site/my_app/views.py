@@ -19,3 +19,6 @@ def variable_view(request):
 
 
   return render(request, 'my_app/variable.html', context=my_var)
+
+def extended_view(request):
+  return render(request, 'my_app/extended.html')
