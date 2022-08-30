@@ -27,5 +27,13 @@
 
     {% comment %} Stacking Filters {% endcomment %}
     <h2>{{first_name | lower | capfirst}}</h2>
+
+    <!-- Django Tags -->
+    <h2>Using the for loop on some_list</h2>
+    <ul>
+      {%for item in some_list%}
+      <li>{{item}}</li>
+      {%endfor%}
+    </ul>
   </body>
 </html>
