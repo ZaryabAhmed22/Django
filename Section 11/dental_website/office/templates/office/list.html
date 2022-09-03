@@ -1,0 +1,9 @@
+{% extends "base.html" %} {% block content %}
+
+<ul>
+  {% for patient in patients %}
+  <li>{{patient.first_name}}</li>
+  {% endfor %}
+</ul>
+
+{% endblock content%}
