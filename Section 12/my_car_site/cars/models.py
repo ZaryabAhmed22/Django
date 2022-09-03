@@ -7,6 +7,6 @@ class Car(models.Model):
   year = models.IntegerField()
 
   def __str__(self):
-    return f'{self.pk} Car is {self.brand}, model: {self.year}'
+    return f'PK: {self.pk} >> Car is {self.brand}, model: {self.year}'
 
 # after that --> python manage.py makemigrations cars
