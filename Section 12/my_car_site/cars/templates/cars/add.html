@@ -2,17 +2,32 @@
 <div class="container">
   <h1>ADD HTML</h1>
   <h2>Add A New Car To The Database<h2>
-  <form method='post'>
-    <div>
+  {% comment %} <form method='post' >
+    {% csrf_token %}
+    <div class='form-group'>
       <label for="brand">Brand:</label>
-      <input type="text" id='brand' name='brand'/>
+      <input class='form-control' type="text" id='brand' name='brand'/>
     </div>
 
-    <div>
+    <div class='form-group'> 
       <label for="year">Year:</label>
-      <input type="text" id='year' name='year'/>
+      <input class='form-control' type="text" id='year' name='year'/>
     </div>
-    <input type='submit'>
+    <input class='btn-primary' type='submit'>
+  </form> {% endcomment %}
+
+  <form>
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="brand" class="form-label">Brand</label>
+      <input type="text" class="form-control" id="brand" >
+      <div id="emailHelp" class="form-text">Please enter the exact name of the car you want to add.</div>
+    </div>
+    <div class="mb-3">
+      <label for="year" class="form-label">Year</label>
+      <input type="text" class="form-control" id="year">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
 {% endblock content %}
