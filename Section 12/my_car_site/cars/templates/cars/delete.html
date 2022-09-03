@@ -1,3 +1,17 @@
 {% extends "base.html" %} {% block content %}
-<h1>DELETE HTML</h1>
-{% endblock content %}
+<div class="container">
+  <h1>DELETE A CAR FROM DATABASE</h1>
+  <h2>Enter the Primary Key To Delete Car</h2>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="pk" class="form-label">Primary Key</label>
+      <input type="text" class="form-control" id="pk" name="pk" />
+      <div id="pk-help" class="form-text">
+        Make sure enter the exact PK number to avoid any mistake.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  {% endblock content %}
+</div>

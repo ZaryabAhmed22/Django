@@ -1,31 +1,35 @@
 {% extends "base.html" %} {% block content %}
 <div class="container">
   <h1>ADD HTML</h1>
-  <h2>Add A New Car To The Database<h2>
-  {% comment %} <form method='post' >
+  <h2>Add A New Car To The Database</h2>
+  {% comment %}
+  <form method="post">
     {% csrf_token %}
-    <div class='form-group'>
+    <div class="form-group">
       <label for="brand">Brand:</label>
-      <input class='form-control' type="text" id='brand' name='brand'/>
+      <input class="form-control" type="text" id="brand" name="brand" />
     </div>
 
-    <div class='form-group'> 
+    <div class="form-group">
       <label for="year">Year:</label>
-      <input class='form-control' type="text" id='year' name='year'/>
+      <input class="form-control" type="text" id="year" name="year" />
     </div>
-    <input class='btn-primary' type='submit'>
-  </form> {% endcomment %}
+    <input class="btn-primary" type="submit" />
+  </form>
+  {% endcomment %}
 
-  <form action='' method='POST'>
+  <form action="" method="POST">
     {% csrf_token %}
     <div class="mb-3">
       <label for="brand" class="form-label">Brand</label>
-      <input type="text" class="form-control" id="brand" name='brand'>
-      <div id="brand-help" class="form-text">Please enter the exact name of the car you want to add.</div>
+      <input type="text" class="form-control" id="brand" name="brand" />
+      <div id="brand-help" class="form-text">
+        Please enter the exact name of the car you want to add.
+      </div>
     </div>
     <div class="mb-3">
       <label for="year" class="form-label">Year</label>
-      <input type="text" class="form-control" id="year" name='year'>
+      <input type="text" class="form-control" id="year" name="year" />
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
