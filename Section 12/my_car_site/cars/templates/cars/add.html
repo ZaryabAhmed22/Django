@@ -16,16 +16,16 @@
     <input class='btn-primary' type='submit'>
   </form> {% endcomment %}
 
-  <form>
+  <form action='' method='POST'>
     {% csrf_token %}
     <div class="mb-3">
       <label for="brand" class="form-label">Brand</label>
-      <input type="text" class="form-control" id="brand" >
-      <div id="emailHelp" class="form-text">Please enter the exact name of the car you want to add.</div>
+      <input type="text" class="form-control" id="brand" name='brand'>
+      <div id="brand-help" class="form-text">Please enter the exact name of the car you want to add.</div>
     </div>
     <div class="mb-3">
       <label for="year" class="form-label">Year</label>
-      <input type="text" class="form-control" id="year">
+      <input type="text" class="form-control" id="year" name='year'>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
