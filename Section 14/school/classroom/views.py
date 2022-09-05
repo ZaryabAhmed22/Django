@@ -1,4 +1,4 @@
-from tkinter.tix import Form
+from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.views.generic import TemplateView, FormView
 from classroom.froms import ContactForm
@@ -18,7 +18,8 @@ class ContactFormView(FormView):
   template_name= 'classroom/contact.html'
 
   # succes URL?
-  success_url= '/classroom/thank_you' #URL 
+  #success_url= '/classroom/thank_you' #URL 
+  success_url= reverse_lazy('classroom:thank_you')
 
   # what to do with from?
   def form_valid(self, form):
