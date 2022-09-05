@@ -21,3 +21,10 @@ class ReviewForm(ModelForm):
       'last_name': "YOUR LAST NAME",
       'stars': "RATING",
     }
+
+    error_messages = {
+      'stars': {
+        'min_value': "Minimum rating is 1",
+        'max_value': "Maximum rating is 5"
+      }
+    }
