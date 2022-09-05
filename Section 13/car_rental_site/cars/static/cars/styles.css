@@ -4,3 +4,7 @@ body {
 .my-form {
   border: 5px solid red;
 }
+
+.no-border {
+  border: 0px;
+}
