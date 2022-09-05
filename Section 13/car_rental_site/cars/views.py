@@ -12,8 +12,8 @@ def rental_review(request):
     #Checking if the form is valid
     if form.is_valid():
       #{''first_name; 'JOSE',}
-      print(form.cleaned_data) #cleaned_data is a python dictionary 
-
+      #print(form.cleaned_data) #cleaned_data is a python dictionary 
+      form.save()
       #redirecting the user to thankyou
       return redirect(reverse('cars:thank_you'))
   else:
