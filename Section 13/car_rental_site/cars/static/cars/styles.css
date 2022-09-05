@@ -1,3 +1,6 @@
+body {
+  background-color: antiquewhite;
+}
 .my-form {
   border: 5px solid red;
 }
