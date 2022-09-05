@@ -14,4 +14,4 @@ from django.forms import ModelForm
 class ReviewForm(ModelForm):
   class Meta:
     model = ReviewModel
-    fields = ['first_name', 'last_name']
+    fields = ['first_name', 'last_name', 'stars']
