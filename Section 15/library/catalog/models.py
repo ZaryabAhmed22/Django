@@ -11,9 +11,11 @@ class Genre(models.Model):
 class Book(models.Model):
   title = models.CharField(max_length=200)
   author = models.ForeignKey('Author', on_delete=models.SET_NULL) 
+  summary = models.TextField(max_length=600)
+  isbn = models.CharField('ISBN', max_length=13, unique=True)
   # model.SET_NULL --> null value if no author is selected or the author is deleted
   # ForeignKey('Author') --> this model is linked to the Author model
-  # MORE TO COME HERE FOR BOOK
+  
 
 class Author(models.Model):
   first_name = models.CharField(max_length=200)
@@ -24,6 +26,7 @@ class Author(models.Model):
   class Meta:
     ordering = ['last_name', 'first_name']
 
+  #access a particular author instance
   def get_absolute_url(self):
       return reverse("author_detail", kwargs={"pk": self.pk})
   
