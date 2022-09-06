@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
 from django.shortcuts import render
-from django.views.generic import TemplateView, FormView, CreateView
+from django.views.generic import TemplateView, FormView, CreateView, ListView
 from classroom.froms import ContactForm
 from classroom.models import Teacher
 
@@ -38,4 +38,11 @@ class TeacherCreateView(CreateView):
   fields = '__all__'
   success_url= reverse_lazy('classroom:thank_you')
 
-  # template --> dejango by default searches for a template named model_form.html
+  # template --> django by default searches for a template named model_form.html
+
+####### LIST VIEW #######
+class TeacherListView(ListView):
+  # Step 1: Connect to the model
+  model = Teacher
+
+  # template --> django by default searches for a template named model_list.html
