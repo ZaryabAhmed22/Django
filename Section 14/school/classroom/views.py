@@ -45,4 +45,13 @@ class TeacherListView(ListView):
   # Step 1: Connect to the model
   model = Teacher
 
+  # Default queryset
+  #queryset= Teacher.objects.all()
+  # Altering the QuerySet
+  queryset= Teacher.objects.order_by('first_name')
+
+  #Changing name for object_list
+  context_object_name= 'teacher_list'
+
+
   # template --> django by default searches for a template named model_list.html
