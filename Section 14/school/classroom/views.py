@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
 from django.shortcuts import render
-from django.views.generic import TemplateView, FormView, CreateView, ListView
+from django.views.generic import TemplateView, FormView, CreateView, ListView,DetailView
 from classroom.froms import ContactForm
 from classroom.models import Teacher
 
@@ -55,3 +55,12 @@ class TeacherListView(ListView):
 
 
   # template --> django by default searches for a template named model_list.html
+
+####### DETAIL VIEW #######
+class TeacherDetailVIew(DetailView):
+  #RETURN ONLY ONE MODEL ENTRY REFERING TO THE PK
+  # Step 1: Connect to the model
+  model = Teacher #Sends a context object
+  #PK --> {{teacher}}
+
+   # template --> django by default searches for a template named model_detail.html
