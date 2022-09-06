@@ -9,5 +9,7 @@ class Genre(models.Model):
 
 class Book(models.Model):
   title = models.CharField(max_length=200)
-  author = models.ForeignKey('Author', on_delete=models.SET_NULL) # null value if no author is selected or the author is deleted
+  author = models.ForeignKey('Author', on_delete=models.SET_NULL) 
+  # model.SET_NULL --> null value if no author is selected or the author is deleted
+  # ForeignKey('Author') --> this model is linked to the Author model
   # MORE TO COME HERE FOR BOOK
