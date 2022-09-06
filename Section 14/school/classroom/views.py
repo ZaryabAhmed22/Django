@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
 from django.shortcuts import render
-from django.views.generic import TemplateView, FormView, CreateView, ListView,DetailView
+from django.views.generic import TemplateView, FormView, CreateView, ListView,DetailView, UpdateView
 from classroom.froms import ContactForm
 from classroom.models import Teacher
 
@@ -30,6 +30,7 @@ class ContactFormView(FormView):
     return super().form_valid(form)
 
 ####### CREATE VIEW #######
+# Creates a model form
 class TeacherCreateView(CreateView):
   # Step 1: Connect the model
   model = Teacher
@@ -41,6 +42,7 @@ class TeacherCreateView(CreateView):
   # template --> django by default searches for a template named model_form.html
 
 ####### LIST VIEW #######
+# Prints all the instances of the model declared
 class TeacherListView(ListView):
   # Step 1: Connect to the model
   model = Teacher
@@ -57,6 +59,7 @@ class TeacherListView(ListView):
   # template --> django by default searches for a template named model_list.html
 
 ####### DETAIL VIEW #######
+# Details of a specific instance of the declared model
 class TeacherDetailVIew(DetailView):
   #RETURN ONLY ONE MODEL ENTRY REFERING TO THE PK
   # Step 1: Connect to the model
@@ -64,3 +67,15 @@ class TeacherDetailVIew(DetailView):
   #PK --> {{teacher}}
 
    # template --> django by default searches for a template named model_detail.html
+
+####### UPDATE VIEW #######
+# Mix between create view and detail view
+class TeacherUpdateVIew(UpdateView):
+  # SHARE model_form.html -- UPDATES dingle PK
+  model = Teacher
+
+  # fields to be updated
+  fields = ['last_name', 'subject']
+
+  #success url
+  success_url= reverse_lazy('classroom:teacher_list')
