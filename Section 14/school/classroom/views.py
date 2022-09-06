@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
 from django.shortcuts import render
-from django.views.generic import TemplateView, FormView, CreateView, ListView,DetailView, UpdateView
+from django.views.generic import TemplateView, FormView, CreateView, ListView,DetailView, UpdateView, DeleteView
 from classroom.froms import ContactForm
 from classroom.models import Teacher
 
@@ -79,3 +79,13 @@ class TeacherUpdateVIew(UpdateView):
 
   #success url
   success_url= reverse_lazy('classroom:teacher_list')
+
+####### DELETE VIEW #######
+# Sends Back a form with single Delete Button
+class TeacherDeleteView(DeleteView):
+  model = Teacher
+
+  #success url
+  success_url= reverse_lazy('classroom:teacher_list')
+
+  # template --> django by default searches for a template named model_confirm_delete.html
