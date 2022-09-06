@@ -13,8 +13,17 @@ class Book(models.Model):
   author = models.ForeignKey('Author', on_delete=models.SET_NULL) 
   summary = models.TextField(max_length=600)
   isbn = models.CharField('ISBN', max_length=13, unique=True)
+  genre = models.ManyToManyField("Genre")
+
+  def __str__(self):
+    return f'{self.title}'
+
+  def get_absolute_url(self):
+    return reverse("book_detail", kwargs={"pk": self.pk})
+  
   # model.SET_NULL --> null value if no author is selected or the author is deleted
   # ForeignKey('Author') --> this model is linked to the Author model
+  # ManyToManyField means many books can have many genres
   
 
 class Author(models.Model):
