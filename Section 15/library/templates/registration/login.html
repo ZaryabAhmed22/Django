@@ -1,0 +1,33 @@
+<!-- CHECK FOR ERRORS -->
+{% if form.errors%}
+<p>Your username or password is incorrect. Try again.</p>
+{% endif %} {% if next %} {% if user.is_authenticated %}
+<p>You don't have permission to view this page!</p>
+{% else %}
+<p>Please login to see this page</p>
+{% endif %} {% endif %}
+
+
+<!-- Login Form -->
+<form method='post' action='{% url 'login' %}'>
+  {% csrf_token %}
+  {{form.username.label_tag}}
+  {{form.username}}
+
+  {{form.password.label}}
+  {{form.password}}
+  <input type='submit' value='login'>
+  <input type = 'hidden' name='next' value='{{next}}'>
+</form>
+
+<!-- CONDITIONS -->
+
+<!-- 
+-- User is nexted because of some other reason but is logged in
+-- User is nexted because he is not logged, in this case present a form
+-->
+
+<!-- USER IS AUTHENTICATED -->
+<!-- LOGIN -->
+
+<!-- FORM -->

@@ -23,5 +23,18 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path('catalog/', include('catalog.urls')),
     path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(url='catalog/'))
+    path('', RedirectView.as_view(url='catalog/')),
+    path('accounts/', include('django.contrib.auth.urls'))
 ]
+
+# The path -->  'accounts/', include('django.contrib.auth.urls') automatically creates these url paths ofr our website and these are stored in django source code
+
+# accounts/login/[name='login']
+# accounts/logout/[namee='logout']
+# accounts/password_change/[name='password_change']
+# accounts/password_change/done/[name='password_change_done']
+# accounts/password_reset/[name='password_reset']
+# accounts/reset/done/[name='password_reset_done']
+# accounts/<uidb64>/<token>[name='password_reset_confirm']
+# accounts/reset/done/[name='password_reset_complete']
+

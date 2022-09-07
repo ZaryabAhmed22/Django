@@ -72,3 +72,6 @@ class BookInstance(models.Model):
 
   def __str(self):
     return f'{self.id} ({self.book.title})'
+
+class User(models.Model):
+  pass
