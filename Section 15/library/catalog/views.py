@@ -1,8 +1,11 @@
+import logging
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Author, Genre, Language, Book, BookInstance
 from django.views.generic import CreateView, DetailView
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def index(request):
@@ -27,3 +30,7 @@ class BookCreate(CreateView): #book_form.html
 
 class BookDetail(DetailView): #book_detail
   model = Book
+
+@login_required
+def my_view(request):
+  return render(request, 'catalog/my_view.html')
