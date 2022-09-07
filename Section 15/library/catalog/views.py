@@ -2,7 +2,7 @@ import logging
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Author, Genre, Language, Book, BookInstance
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, ListView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -47,3 +47,15 @@ class SignUpView(CreateView):
   form_class = UserCreationForm # overwriting the form with UserCreationForm
   success_url= reverse_lazy('login') # login path is built-in in Django
   template_name = 'catalog/signup.html'
+
+class CheckedOutBooksView(LoginRequiredMixin, ListView):
+  # List all BookInstances BUT I will filter based off currently logged in user session
+  model = BookInstance
+  template_name = 'catalog/profile.html' #overwrting the default template for listView i.e model_list.html
+  paginate_by = 5 #5 book instances per page
+
+  #overwriting the get_queryset method  
+  def get_queryset(self):
+    return BookInstance.objects.filter(borrower = self.request.user).all()
+
+    # so basically self.request.user means --> when we request the template_name, it carries the user information with it, so we are making use of that information to filter out the book instaces
