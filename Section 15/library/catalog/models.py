@@ -41,3 +41,27 @@ class Author(models.Model):
   
   def __str__(self):
     return f'{self.last_name}, {self.first_name}'
+
+import uuid
+
+# Instance of a Book present in library --> just like copy of a book
+class BookInstance(models.Model):
+  id = models.UUIDField(primary_key=True, default=uuid.uuid4)
+  book = models.ForiegnKey('Book', on_delete=models.RESTRICT, null=True)
+  imprint = models.CharField(max_length=200)
+  due_back = models.DateField(null=True, blank=True)
+
+  LOAN_STATUS = (
+    ('m', 'Maintenance'),
+    ('o', 'On Loan'),
+    ('a', 'Available'),
+    ('r', 'Reserved')
+  )
+
+  status = models.CharField(max_length=1, choices=LOAN_STATUS, blank=True, default='m')
+
+  class Meta:
+    ordering = ['due_back']
+
+  def __str(self):
+    return f'{self.id} ({self.book.title})'
