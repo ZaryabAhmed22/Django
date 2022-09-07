@@ -5,6 +5,7 @@ from .models import Author, Genre, Language, Book, BookInstance
 from django.views.generic import CreateView, DetailView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
@@ -22,7 +23,9 @@ def index(request):
 
   return render(request, 'catalog/index.html', context=context)
 
-class BookCreate(CreateView): #book_form.html
+# VIEW LEVEL AUTH
+# --> for Class Based Views we use Mixins
+class BookCreate(LoginRequiredMixin, CreateView): #book_form.html
   model = Book
   fields = '__all__'
 
@@ -31,6 +34,9 @@ class BookCreate(CreateView): #book_form.html
 class BookDetail(DetailView): #book_detail
   model = Book
 
+
+# VIEW LEVEL AUTH
+# --> for functional views we use Decorators 
 @login_required
 def my_view(request):
   return render(request, 'catalog/my_view.html')
