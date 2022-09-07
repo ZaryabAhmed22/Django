@@ -9,5 +9,13 @@
     <h1 style="background: aqua">HOMEPAGE</h1>
     <p>Total Books: {{num_book}}</p>
     <p>Total Books Available: {{num_instances_avail}}</p>
+
+    <!--using the user object returned by the django auth system -->
+    {% if user.is_authenticated %}
+    <p>You're logged in</p>
+    <p>Welcom back {{user.get_username}}!</p>
+    {% else %}
+    <p>You're currently not logged in</p>
+    {% endif %}
   </body>
 </html>
