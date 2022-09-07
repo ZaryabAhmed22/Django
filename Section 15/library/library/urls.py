@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.views.generic import RedirectView
 
 # www.examples.com/app --> exampl.com/app
-#setting up automatic permanent redirect
+#setting up automatic permanent redirect using RedirectVire CBV
 
 urlpatterns = [
     path('catalog/', include('catalog.urls')),
