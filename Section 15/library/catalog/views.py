@@ -6,6 +6,7 @@ from django.views.generic import CreateView, DetailView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserCreationForm
 
 
 # Create your views here.
@@ -40,3 +41,9 @@ class BookDetail(DetailView): #book_detail
 @login_required
 def my_view(request):
   return render(request, 'catalog/my_view.html')
+
+# Creating a model form for user signup
+class SignUpView(CreateView):
+  form_class = UserCreationForm # overwriting the form with UserCreationForm
+  success_url= reverse_lazy('login') # login path is built-in in Django
+  template_name = 'catalog/signup.html'
