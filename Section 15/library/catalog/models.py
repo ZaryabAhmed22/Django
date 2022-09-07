@@ -8,12 +8,19 @@ class Genre(models.Model):
   def __str__(self):
     return f'{self.name}'
 
+class Language(models.Model):
+  name = models.CharField(max_length=200)
+  
+  def __str__(self):
+    return self.name
+
 class Book(models.Model):
   title = models.CharField(max_length=200)
-  author = models.ForeignKey('Author', on_delete=models.SET_NULL) 
+  author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True) 
   summary = models.TextField(max_length=600)
   isbn = models.CharField('ISBN', max_length=13, unique=True)
   genre = models.ManyToManyField("Genre")
+  language = models.ForeignKey("Language", on_delete=models.SET_NULL, null=True)
 
   def __str__(self):
     return f'{self.title}'
@@ -47,7 +54,7 @@ import uuid
 # Instance of a Book present in library --> just like copy of a book
 class BookInstance(models.Model):
   id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-  book = models.ForiegnKey('Book', on_delete=models.RESTRICT, null=True)
+  book = models.ForeignKey('Book', on_delete=models.RESTRICT, null=True)
   imprint = models.CharField(max_length=200)
   due_back = models.DateField(null=True, blank=True)
 
